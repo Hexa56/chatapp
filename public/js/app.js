@@ -2100,7 +2100,6 @@ var channel3 = Echo.channel('Tick');
 channel3.listen('.tick', function (data) {
   $("." + data.myid + data.oid + " span i").removeClass('fa-check');
   $("." + data.myid + data.oid + " span i").addClass('fa-check-double');
-  $("form." + data.oid + data.myid).val('');
 });
 var channel2 = Echo.channel('status');
 channel2.listen('.check', function (data) {
@@ -2141,9 +2140,7 @@ channel.listen('.msg', function (data) {
     //     document.getElementById(data.sender).innerHTML = "<span class='bg-warning p-1'>"+count+"</span>";
     // }
     if (data.reciver == localStorage.getItem('selected') && data.sender == username.value) {
-      var _double = '';
-      if (data.dd == 1) _double = "fa-check-double";else _double = "fa-check";
-      div.innerHTML += '<li id="' + data.id + '" class="d-flex message right">' + '<div class="message-body">' + '<div class="message-row d-flex align-items-center justify-content-end">' + '<div class="dropdown">' + ' <a class="text-muted me-1 p-2 text-muted" href="#" data-toggle="dropdown" aria-haspopup="true"' + 'aria-expanded="false">' + '<i class="fas fa-ellipsis-v"></i>' + '</a>' + '<div class="dropdown-menu">' + '<a class="dropdown-item" href="#">Share <i class="fas fa-share"></i></a>' + '<a class="dropdown-item" onclick="delmsg(' + data.id + ')">Delete <i class="fas fa-trash"></i></a>' + '</div>' + '</div>' + '<div class="message-content border p-3">' + data.msg + '</div>' + '</div>' + '<span class="date-time text-muted">' + data.time + '<i class="fas ' + _double + ' text-primary"></i></span>' + '</div>' + '</li>';
+      div.innerHTML += '<li id="' + data.id + '" class="d-flex message right">' + '<div class="message-body">' + '<div class="message-row d-flex align-items-center justify-content-end">' + '<div class="dropdown">' + ' <a class="text-muted me-1 p-2 text-muted" href="#" data-toggle="dropdown" aria-haspopup="true"' + 'aria-expanded="false">' + '<i class="fas fa-ellipsis-v"></i>' + '</a>' + '<div class="dropdown-menu">' + '<a class="dropdown-item" href="#">Share <i class="fas fa-share"></i></a>' + '<a class="dropdown-item" onclick="delmsg(' + data.id + ')">Delete <i class="fas fa-trash"></i></a>' + '</div>' + '</div>' + '<div class="message-content border p-3">' + data.msg + '</div>' + '</div>' + '<span class="date-time text-muted">' + data.time + '<i class="fas fa-check text-primary"></i></span>' + '</div>' + '</li>';
       var myDiv = document.getElementById("chat");
       myDiv.scrollTop = myDiv.scrollHeight;
     } else if (data.reciver == username.value && data.sender == localStorage.getItem('selected')) {

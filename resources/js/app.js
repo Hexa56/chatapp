@@ -45,7 +45,6 @@ const susername = document.getElementById("sname");
     
       $("."+data.myid+data.oid+" span i").removeClass('fa-check');
       $("."+data.myid+data.oid+" span i").addClass('fa-check-double');
-      $("form."+data.oid+data.myid).val('');
       
   });
 
@@ -146,12 +145,6 @@ channel.listen('.msg', function(data) {
     // }
     if(data.reciver == localStorage.getItem('selected') && data.sender == username.value)
     {
-      let double = '';
-      if(data.dd == 1)
-      double = "fa-check-double";
-      else
-      double = "fa-check";
-
     div.innerHTML += '<li id="'+ data.id +'" class="d-flex message right">'+
     '<div class="message-body">'+
       '<div class="message-row d-flex align-items-center justify-content-end">'+
@@ -169,7 +162,7 @@ channel.listen('.msg', function(data) {
         '<div class="message-content border p-3">'+data.msg +
         '</div>'+
       '</div>'+
-      '<span class="date-time text-muted">'+ data.time +'<i class="fas '+ double +' text-primary"></i></span>'+
+      '<span class="date-time text-muted">'+ data.time +'<i class="fas fa-check text-primary"></i></span>'+
    '</div>'+
   '</li>';
   var myDiv = document.getElementById("chat");

@@ -17,13 +17,13 @@
                             <form class="mb-4 mt-5" method="POST" action="{{ route('login.post') }}">
                                 @csrf
                                 <div class="input-group mb-2">
-                                    <input type="email" name="email" class="form-control form-control-lg" placeholder="Enter your email">
+                                    <input autocomplete="off" type="email" name="email" class="form-control form-control-lg" placeholder="Enter your email">
                                     @if ($errors->has('email'))
                                       <span class="text-danger" >{{ $errors->first('email') }}</span>
                                     @endif
                                 </div>
                                 <div class="input-group mb-4">
-                                    <input type="password" name="password" class="form-control form-control-lg" placeholder="Enter your password">
+                                    <input autocomplete="off" type="password" name="password" class="form-control form-control-lg" placeholder="Enter your password">
                                     @if ($errors->has('email'))
                                       <span class="text-danger" >{{ $errors->first('email') }}</span>
                                     @endif

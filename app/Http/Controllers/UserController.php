@@ -252,11 +252,12 @@ class UserController extends Controller
             $imgcheck = ['jpg', 'jpeg', 'png'];
             $video = ['mp4','gif','mkv'];
             $audio = ['mp3','wav'];
-            $name = request()->file->getClientOriginalName();
+            $temp = request()->file->getClientOriginalName();
+            $name = str_replace(' ','-',$temp);
             $extension = request()->file->getClientOriginalExtension();
             request()->file->storeAs('public/docs', $name);
             if(in_array($extension, $imgcheck))
-            $msg = "<a target='_new' href=/storage/docs/".$name."><img width='300' height='300' src=/storage/docs/".$name."></a>";
+            $msg = "<a class='d-grid' target='_new' href=/storage/docs/".$name."><img width='300' height='300' src=/storage/docs/".$name.">".$name."</a>";
             else if(in_array($extension, $video))
             {
             $msg = '<video width="400" controls>
@@ -270,7 +271,7 @@ class UserController extends Controller
             </audio>';
             }
             else
-            $msg = "<a target='_new' href=/storage/docs/".$name."><img width='100' height='100' src=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFBVgrCZUwUT9V-rLSpQPj10C8reI2lUodOA&usqp=CAU></a>";
+            $msg = "<a class='d-grid' target='_new' href=/storage/docs/".$name."><img width='100' height='100' src=https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFBVgrCZUwUT9V-rLSpQPj10C8reI2lUodOA&usqp=CAU>".$name."</a>";
             $add->message = $msg;
         }
         else

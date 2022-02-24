@@ -407,7 +407,7 @@ grouppeople::join('groupss','groupss.id','=','grouppeoples.group_id')->where('gr
                     <input type="hidden" id="name" name="name" value="{{Session::get('user')}}">
                     <input type="hidden" id="reciver" name="reciver" value="{{$user->name}}"> 
                     <input type="hidden" id="dd" class="{{Session::get('user_id')}}{{$user->name}}" name="dd" value="{{$double}}"> 
-                    <input type="text" onblur="online({{Session::get('user_id')}})" onclick="typing({{Session::get('user_id')}})" id="msg" name="msg" class="form-control border-0 pl-0 text-muted"
+                    <input autocomplete="off" type="text" onblur="online({{Session::get('user_id')}})" onclick="typing({{Session::get('user_id')}})" id="msg" name="msg" class="form-control border-0 pl-0 text-muted"
                       style="font-size:18px;" placeholder="Type your message...">
                     <div class="input-group-append">
                       <span class="input-group-text border-0">
